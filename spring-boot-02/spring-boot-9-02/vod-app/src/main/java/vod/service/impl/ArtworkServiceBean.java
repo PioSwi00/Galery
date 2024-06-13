@@ -1,7 +1,6 @@
 package vod.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import vod.repository.GalleryDao;
 import vod.repository.ArtistDao;
@@ -14,26 +13,27 @@ import vod.service.ArtworkService;
 import java.util.List;
 import java.util.logging.Logger;
 
-@Component
+@Service
 public class ArtworkServiceBean implements ArtworkService {
 
     private static final Logger log = Logger.getLogger(ArtworkService.class.getName());
 
-
     @Autowired
+    public void setArtistDao(ArtistDao artistDao) {
+        this.artistDao = artistDao;
+    }
     private ArtistDao artistDao;
     private GalleryDao galleryDao;
     private ArtworkDao artworkDao;
 
+    @Autowired
     public ArtworkServiceBean(ArtistDao artistDao, GalleryDao galleryDao, ArtworkDao artworkDao) {
         this.artistDao = artistDao;
         this.galleryDao = galleryDao;
         this.artworkDao = artworkDao;
     }
-    @Autowired
-    public void setArtistDao(ArtistDao artistDao) {
-        this.artistDao = artistDao;
-    }
+
+
 
     public List<Artwork> getAllArtworks() {
         log.info("searching all artworks...");

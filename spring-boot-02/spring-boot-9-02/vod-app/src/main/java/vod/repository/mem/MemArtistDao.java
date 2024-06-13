@@ -1,11 +1,12 @@
 package vod.repository.mem;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import vod.repository.ArtistDao;
 import vod.model.Artist;
 
 import java.util.List;
-@Component
+@Repository
 public class MemArtistDao implements ArtistDao {
     @Override
     public List<Artist> findAll() {
