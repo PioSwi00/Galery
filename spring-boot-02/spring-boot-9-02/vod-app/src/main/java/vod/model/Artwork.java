@@ -10,14 +10,16 @@ public class Artwork {
     private String poster; // URL
     private Artist artist; // relacja do artysty
     private float rating; // rating
+    private int yearCreated; // new field
     private List<Gallery> galleries = new ArrayList<>(); // relacja wiele do wiele - bidirectional
 
-    public Artwork(int id, String title, String poster, Artist artist, float rating) {
+    public Artwork(int id, String title, String poster, Artist artist, float rating, int yearCreated) {
         this.id = id;
         this.title = title;
         this.poster = poster;
         this.artist = artist;
         this.rating = rating;
+        this.yearCreated = yearCreated;
     }
 
     public Artwork() {
@@ -64,6 +66,14 @@ public class Artwork {
         this.rating = rating;
     }
 
+    public int getYearCreated() {
+        return yearCreated;
+    }
+
+    public void setYearCreated(int yearCreated) {
+        this.yearCreated = yearCreated;
+    }
+
     public List<Gallery> getGalleries() {
         return galleries;
     }
@@ -82,6 +92,7 @@ public class Artwork {
                 "title='" + title + '\'' +
                 ", artist=" + artist +
                 ", rating=" + rating +
+                ", yearCreated=" + yearCreated +
                 '}';
     }
 }

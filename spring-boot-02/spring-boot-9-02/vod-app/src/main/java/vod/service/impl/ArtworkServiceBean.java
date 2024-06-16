@@ -1,39 +1,35 @@
 package vod.service.impl;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vod.repository.GalleryDao;
 import vod.repository.ArtistDao;
+import vod.repository.GalleryDao;
 import vod.repository.ArtworkDao;
-import vod.model.Gallery;
 import vod.model.Artist;
+import vod.model.Gallery;
 import vod.model.Artwork;
 import vod.service.ArtworkService;
 
 import java.util.List;
 import java.util.logging.Logger;
-
+@AllArgsConstructor
 @Service
 public class ArtworkServiceBean implements ArtworkService {
 
     private static final Logger log = Logger.getLogger(ArtworkService.class.getName());
 
-    @Autowired
-    public void setArtistDao(ArtistDao artistDao) {
-        this.artistDao = artistDao;
-    }
+
     private ArtistDao artistDao;
     private GalleryDao galleryDao;
     private ArtworkDao artworkDao;
 
-    @Autowired
+    /*@Autowired
     public ArtworkServiceBean(ArtistDao artistDao, GalleryDao galleryDao, ArtworkDao artworkDao) {
         this.artistDao = artistDao;
         this.galleryDao = galleryDao;
         this.artworkDao = artworkDao;
-    }
-
-
+    }*/
 
     public List<Artwork> getAllArtworks() {
         log.info("searching all artworks...");
@@ -56,7 +52,7 @@ public class ArtworkServiceBean implements ArtworkService {
     }
 
     public List<Gallery> getAllGalleries() {
-        log.info("searching all galleries");
+        log.info("searching all galleries...");
         return galleryDao.findAll();
     }
 
@@ -71,7 +67,7 @@ public class ArtworkServiceBean implements ArtworkService {
     }
 
     public List<Artist> getAllArtists() {
-        log.info("searching all artists");
+        log.info("searching all artists...");
         return artistDao.findAll();
     }
 

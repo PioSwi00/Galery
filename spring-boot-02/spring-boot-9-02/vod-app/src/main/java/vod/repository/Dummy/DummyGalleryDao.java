@@ -9,7 +9,7 @@ import java.util.List;
 public class DummyGalleryDao implements GalleryDao {
     @Override
     public List<Gallery> findAll() {
-        return null;
+        return List.of();
     }
 
     @Override
@@ -19,6 +19,13 @@ public class DummyGalleryDao implements GalleryDao {
 
     @Override
     public List<Gallery> findByArtwork(Artwork artwork) {
+        return List.of();
+    }
+
+    @Override
+    public Gallery save(Gallery gallery) {
         return null;
     }
+
+
 }

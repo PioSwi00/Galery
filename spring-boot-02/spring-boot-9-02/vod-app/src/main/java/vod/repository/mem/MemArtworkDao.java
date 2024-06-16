@@ -1,6 +1,7 @@
 package vod.repository.mem;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import vod.repository.ArtworkDao;
 import vod.model.Gallery;
 import vod.model.Artist;
@@ -8,7 +9,7 @@ import vod.model.Artwork;
 
 import java.util.List;
 import java.util.stream.Collectors;
-@Component
+@Repository
 public class MemArtworkDao implements ArtworkDao {
     @Override
     public List<Artwork> findAll() {

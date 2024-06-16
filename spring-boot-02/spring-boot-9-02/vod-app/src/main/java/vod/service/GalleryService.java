@@ -14,4 +14,5 @@ public interface GalleryService {
     List<Gallery> getGalleriesByArtwork(Artwork artwork);
 
     List<Artwork> getArtworksInGallery(Gallery gallery);
+    Gallery addGallery(Gallery gallery);
 }

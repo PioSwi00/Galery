@@ -8,20 +8,20 @@ import vod.model.Gallery;
 import vod.model.Artwork;
 import vod.repository.GalleryDao;
 import vod.repository.ArtworkDao;
+import vod.repository.ArtistDao;
 import vod.service.GalleryService;
 
 import java.util.List;
 import java.util.logging.Logger;
 
-@Component
-@Scope("prototype")
+@Service
 public class GalleryServiceBean implements GalleryService {
 
     private static final Logger log = Logger.getLogger(GalleryService.class.getName());
 
     private GalleryDao galleryDao;
     private ArtworkDao artworkDao;
-@Autowired
+
     public GalleryServiceBean(GalleryDao galleryDao, ArtworkDao artworkDao) {
         log.info("creating gallery service bean");
         this.galleryDao = galleryDao;
@@ -50,5 +50,10 @@ public class GalleryServiceBean implements GalleryService {
     public List<Gallery> getGalleriesByArtwork(Artwork artwork) {
         log.info("searching galleries displaying artwork " + artwork.getId());
         return galleryDao.findByArtwork(artwork);
+    }
+    @Override
+    public Gallery addGallery(Gallery gallery) {
+        log.info("adding new gallery " + gallery);
+        return galleryDao.save(gallery);
     }
 }

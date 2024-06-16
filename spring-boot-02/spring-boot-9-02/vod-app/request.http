@@ -1,0 +1,36 @@
+###
+GET http://localhost:8080/hell
+###
+GET http://localhost:8080/api/galleries
+###
+GET http://localhost:8080/api/galleries?name=test
+custom-header: nie_lubie_czytac
+Cookie: zainteresowania=patrzenie_na_obrazki
+###
+GET http://localhost:8080/api/galleries/1
+###
+GET http://localhost:8080/api/artworks/1/galleries
+###
+POST http://localhost:8080/api/galleries
+Content-Type: application/json
+Accept-Language: pl
+
+{
+  "name": "Galeria Sztuki w Warszawie",
+  "location": "Warszawa, Polska"
+}
+###
+GET http://localhost:8080/api/artworks
+###
+GET http://localhost:8080/api/artworks/1
+###
+GET http://localhost:8080/api/galleries/1/artworks
+###
+POST http://localhost:8080/api/artworks
+Content-Type: application/json
+
+{
+  "title": "Mona Lisa",
+  "yearCreated": 1503,
+  "artistId": 1
+}

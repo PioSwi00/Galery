@@ -5,8 +5,7 @@ import vod.model.Artwork;
 
 import java.util.List;
 
-public interface    ArtworkService {
-
+public interface ArtworkService {
     List<Artwork> getAllArtworks();
 
     List<Artwork> getArtworksByArtist(Artist artist);
@@ -14,7 +13,6 @@ public interface    ArtworkService {
     Artwork getArtworkById(int id);
 
     Artwork addArtwork(Artwork artwork);
-
 
     List<Artist> getAllArtists();
 
