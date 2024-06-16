@@ -10,29 +10,26 @@ import java.util.List;
 class SampleData {
 
     static List<Gallery> galleries = new ArrayList<>();
-
     static List<Artist> artists = new ArrayList<>();
-
     static List<Artwork> artworks = new ArrayList<>();
 
     static {
-
         Artist vanGogh = new Artist(1, "Vincent", "van Gogh");
         Artist picasso = new Artist(2, "Pablo", "Picasso");
         Artist daVinci = new Artist(3, "Leonardo", "da Vinci");
         Artist rembrandt = new Artist(4, "Rembrandt", "van Rijn");
 
-        Artwork starryNight = new Artwork(1, "Starry Night", "https://example.com/starry_night.jpg", vanGogh, 4.9f);
-        Artwork sunflowers = new Artwork(2, "Sunflowers", "https://example.com/sunflowers.jpg", vanGogh, 4.7f);
+        Artwork starryNight = new Artwork(1, "Starry Night", "https://example.com/starry_night.jpg", vanGogh, 4.9f, 1889);
+        Artwork sunflowers = new Artwork(2, "Sunflowers", "https://example.com/sunflowers.jpg", vanGogh, 4.7f, 1888);
 
-        Artwork guernica = new Artwork(3, "Guernica", "https://example.com/guernica.jpg", picasso, 4.8f);
-        Artwork lesDemoiselles = new Artwork(4, "Les Demoiselles d'Avignon", "https://example.com/les_demoiselles.jpg", picasso, 4.6f);
+        Artwork guernica = new Artwork(3, "Guernica", "https://example.com/guernica.jpg", picasso, 4.8f, 1937);
+        Artwork lesDemoiselles = new Artwork(4, "Les Demoiselles d'Avignon", "https://example.com/les_demoiselles.jpg", picasso, 4.6f, 1907);
 
-        Artwork monaLisa = new Artwork(5, "Mona Lisa", "https://example.com/mona_lisa.jpg", daVinci, 5.0f);
-        Artwork lastSupper = new Artwork(6, "The Last Supper", "https://example.com/last_supper.jpg", daVinci, 4.9f);
+        Artwork monaLisa = new Artwork(5, "Mona Lisa", "https://example.com/mona_lisa.jpg", daVinci, 5.0f, 1503);
+        Artwork lastSupper = new Artwork(6, "The Last Supper", "https://example.com/last_supper.jpg", daVinci, 4.9f, 1498);
 
-        Artwork nightWatch = new Artwork(7, "The Night Watch", "https://example.com/night_watch.jpg", rembrandt, 4.8f);
-        Artwork selfPortrait = new Artwork(8, "Self-Portrait", "https://example.com/self_portrait.jpg", rembrandt, 4.7f);
+        Artwork nightWatch = new Artwork(7, "The Night Watch", "https://example.com/night_watch.jpg", rembrandt, 4.8f, 1642);
+        Artwork selfPortrait = new Artwork(8, "Self-Portrait", "https://example.com/self_portrait.jpg", rembrandt, 4.7f, 1660);
 
         bind(starryNight, vanGogh);
         bind(sunflowers, vanGogh);
