@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Management</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Gallery Management</h1>
+</header>
+<main>
+    <section id="add-gallery">
+        <h2>Add New Gallery</h2>
+        <form id="gallery-form">
+            <label for="name">Gallery Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+            <button type="submit">Add Gallery</button>
+        </form>
+        <div id="form-error" class="error"></div>
+    </section>
+    <section id="galleries-list">
+        <h2>Galleries</h2>
+        <button id="load-galleries">Load Galleries</button>
+        <ul id="galleries"></ul>
+    </section>
+</main>
+<script src="js/scripts.js"></script>
+</body>
+</html>

@@ -38,7 +38,7 @@ public class GalleryRest {
         log.info("custom headers: {}", customHeader);
         log.info("cookies: {}", someCookie);
         List<Gallery> galleries = galleryService.getAllGalleries();
-        log.info("{} znalezionych galerii", galleries.size());
+        log.info("{} galleries found", galleries.size());
         galleries.forEach(gallery -> log.info("{}", gallery));
         return galleries;
     }
@@ -47,21 +47,21 @@ public class GalleryRest {
     ResponseEntity<Gallery> getGalleryById(@PathVariable("id") int id){
         Gallery gallery = galleryService.getGalleryById(id);
         if(gallery != null){
-            log.info("{} znaleziono galerie", gallery.getName());
+            log.info("Gallery found: {}", gallery.getName());
             return ResponseEntity.ok(gallery);
-        }else {
-            log.info("Brak galerii");
+        } else {
+            log.info("No gallery found");
             return ResponseEntity.notFound().build();
         }
     }
 
     @GetMapping("/artworks/{artworkId}/galleries")
     ResponseEntity<List<Gallery>> getGalleriesWithArtworks(@PathVariable("artworkId") int artworkId){
-        log.info("Szukam galerii po rodzaju dzieła sztuki");
+        log.info("Searching for galleries with artwork ID: {}", artworkId);
         Artwork artwork = artworkService.getArtworkById(artworkId);
         if(artwork == null){
             return ResponseEntity.notFound().build();
-        }else {
+        } else {
             List<Gallery> galleries = galleryService.getGalleriesByArtwork(artwork);
             return ResponseEntity.ok(galleries);
         }
@@ -69,7 +69,7 @@ public class GalleryRest {
 
     @PostMapping("/galleries")
     ResponseEntity<?> addNewGallery(@Validated @RequestBody Gallery gallery, Errors errors, HttpServletRequest request){
-        log.info("Powstaje nowa galeria...");
+        log.info("Creating new gallery...");
         if(errors.hasErrors()){
             Locale locale = localeResolver.resolveLocale(request);
             String errorMessages = errors.getAllErrors()
@@ -79,7 +79,7 @@ public class GalleryRest {
             return ResponseEntity.badRequest().body(errorMessages);
         }
         gallery = galleryService.addGallery(gallery);
-        log.info("Galeria dodana {}", gallery);
+        log.info("Gallery added: {}", gallery);
         return ResponseEntity.ok(gallery);
     }
 }

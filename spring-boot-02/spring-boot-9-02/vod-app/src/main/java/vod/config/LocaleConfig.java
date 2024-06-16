@@ -13,7 +13,7 @@ public class LocaleConfig {
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver slr = new SessionLocaleResolver();
-        slr.setDefaultLocale(Locale.ENGLISH); // Set the default locale
+        slr.setDefaultLocale(Locale.ENGLISH);
         return slr;
     }
 }
